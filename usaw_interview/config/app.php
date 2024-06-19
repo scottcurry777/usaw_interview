@@ -16,7 +16,9 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+	// Changed this because git doesn't upload .env by default
+	// Also updated the .env.example file with the new name so you can see how I did it locally
+    'name' => env('APP_NAME', 'USAW Interview'),
 
     /*
     |--------------------------------------------------------------------------
