@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::match(array('GET','POST'),'/usaw', function () {
+    return view('usaw');
+})->name('usaw');
