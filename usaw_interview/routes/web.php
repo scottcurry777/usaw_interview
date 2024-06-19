@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::match(array('GET','POST'),'/usaw', function () {
-    return view('usaw');
+Route::match(array('GET','POST'),'/usaw', function (Request $request) {
+	
+	$validated	= null;
+	
+	if ($request->isMethod('post'))
+	{
+		$validated = $request->validate([
+			'name'		=> 'required',
+			'color'		=> 'required',
+			'consent'	=> 'required'
+		]);
+	}
+	
+    return view('usaw', [
+		'colors' => [
+			'',
+			'Blue',
+			'Red',
+			'Green'
+		],
+		'input' => $validated
+	]);
 })->name('usaw');
