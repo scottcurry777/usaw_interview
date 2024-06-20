@@ -19,11 +19,16 @@ class USAW extends Controller
 	{
 		if ($request->isMethod('post'))
 		{
-			// a real app would significantly more validation for types, accepted values, and sql injection
+			// a real app would have significantly more validation for types, accepted values, and sql injection
 			$validated = $request->validate([
 				'name'		=> 'required',
 				'color'		=> 'required',
 				'consent'	=> 'required'
+			],[
+				// in a larger app, I would put these custom error messages into a separate language file
+				'name.required'		=> 'Please tell us your name!',
+				'color.required'	=> 'Please tell us your favorite color!',
+				'consent.required'	=> 'Please consent to sending this form by clicking the checkbox.'
 			]);
 		} else {
 			$validated	= null;
