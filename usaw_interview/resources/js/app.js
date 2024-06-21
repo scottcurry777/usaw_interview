@@ -7,16 +7,19 @@ let possibilities = [
 	" myself."
 ];
 
-showPossibilites();
-
-window.setInterval(function () {
+if (document.getElementById("nowWeAreAllConfused")) {
 	showPossibilites();
-}, possibilities.length * 1000);
 
-function showPossibilites() {
-	possibilities.forEach((possibility, itertion) => {
-		setTimeout(function() {
-			document.getElementById("nowWeAreAllConfused").innerHTML = possibility;
-		}, itertion * 1000);
-	});
+	window.setInterval(function () {
+		showPossibilites();
+	}, possibilities.length * 1000);
+
+	function showPossibilites() {
+		possibilities.forEach((possibility, itertion) => {
+			setTimeout(function() {
+				document.getElementById("nowWeAreAllConfused").innerHTML = possibility;
+			}, itertion * 1000);
+		});
+	}
 }
+
