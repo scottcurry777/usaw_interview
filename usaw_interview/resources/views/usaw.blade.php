@@ -52,7 +52,7 @@
 					<div>
 						<!-- I think the instructions meant to say "I acknowledge I am submitting this form", but they actually say "I acknowledge I am submitting this for". I kept the wording exact per the technical specifications of the instructions. -->
 						<input name="consent" type="checkbox" value="accepted" {{ old('consent') == 'accepted' ? 'checked' : '' }} class="@error('consent') is-invalid @enderror">
-						<label for="consent">I acknowledge I am submitting this for</label>
+						<label for="consent">I acknowledge I am submitting this for<span id="nowWeAreAllConfused"></span></label>
 					</div>
 				
 					<div>
